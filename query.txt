@@ -22,3 +22,29 @@ WHERE (YEAR(NOW()) - YEAR(date_of_birth)) > 20
 
 
 ● Seleziona tutti gli ospiti il cui nome inizia con la D
+
+- SELECT *
+FROM `ospiti`
+WHERE name LIKE 'D%'
+
+● Calcola il totale degli ordini accepted
+
+- SELECT SUM(price)
+FROM `pagamenti`
+WHERE status = 'accepted'
+
+● Qual è il prezzo massimo pagato?
+
+- SELECT MAX(PRICE)
+FROM `pagamenti`
+WHERE status = 'accepted'
+
+
+● Seleziona gli ospiti riconosciuti con patente e nati nel 1975
+
+- SELECT *
+FROM `ospiti`
+WHERE document_type = 'Driver License'
+AND YEAR(date_of_birth) = 1975
+
+● Quanti paganti sono anche ospiti?
