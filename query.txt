@@ -48,3 +48,12 @@ WHERE document_type = 'Driver License'
 AND YEAR(date_of_birth) = 1975
 
 ● Quanti paganti sono anche ospiti?
+
+- SELECT *
+FROM `paganti`
+WHERE ospite_id IS NOT NULL
+
+● Quanti posti letto ha l’hotel in totale?
+
+-SELECT SUM(beds)
+FROM `stanze`
