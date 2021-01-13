@@ -19,3 +19,6 @@ dell’esecuzione della query)
 - SELECT *
 FROM `ospiti`
 WHERE (YEAR(NOW()) - YEAR(date_of_birth)) > 20
+
+
+● Seleziona tutti gli ospiti il cui nome inizia con la D
