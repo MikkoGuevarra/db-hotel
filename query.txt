@@ -1,0 +1,21 @@
+● Seleziona tutti gli ospiti che sono stati identificati con la carta di
+identità
+
+- SELECT *
+FROM `ospiti`
+WHERE document_type = 'CI'
+
+
+● Seleziona tutti gli ospiti che sono nati dopo il 1988
+
+- SELECT *
+FROM `ospiti`
+WHERE YEAR(date_of_birth) > 1988
+
+
+● Seleziona tutti gli ospiti che hanno più di 20 anni (al momento
+dell’esecuzione della query)
+
+- SELECT *
+FROM `ospiti`
+WHERE (YEAR(NOW()) - YEAR(date_of_birth)) > 20
