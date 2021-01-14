@@ -29,7 +29,25 @@ più frequenti
 
 ----------------------------JOIN-----------------------------
 
-● Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
+● Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?  <<<----- da rivedere
+    -SELECT ospiti.name, ospiti.lastname, COUNT(prenotazioni_has_ospiti.ospite_id) as num_prenotazioni
+    FROM `ospiti`
+    JOIN `prenotazioni_has_ospiti`
+    on ospiti.id = prenotazioni_has_ospiti.ospite_id
+    GROUP BY prenotazioni_has_ospiti.ospite_id
+    ORDER BY COUNT(prenotazioni_has_ospiti.ospite_id) DESC
+    LIMIT 2
+
+    -second answer-
+    -SELECT ospiti.name, ospiti.lastname, COUNT(prenotazioni_has_ospiti.ospite_id) as num_prenotazioni
+    FROM `ospiti`
+    JOIN `prenotazioni_has_ospiti`
+    on ospiti.id = prenotazioni_has_ospiti.ospite_id
+    GROUP BY prenotazioni_has_ospiti.ospite_id
+    HAVING num_prenotazioni > 2
+
+● Stampare tutti gli ospiti per ogni prenotazione
+
 
 
 
