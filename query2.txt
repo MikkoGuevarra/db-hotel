@@ -66,6 +66,17 @@ prenotazioni fatte a Maggio 2018
     ON prenotazioni_has_ospiti.prenotazione_id = prenotazioni.id
     WHERE MONTH(prenotazioni.created_at) = 5
 
+● Fai la somma di tutti i prezzi delle prenotazioni per le stanze del
+primo piano
+    -SELECT SUM(pagamenti.price)
+    FROM `prenotazioni`
+    JOIN pagamenti
+    ON pagamenti.prenotazione_id = prenotazioni.id
+    JOIN stanze
+    ON stanze.id = prenotazioni.stanza_id
+    WHERE stanze.floor = 1
+
+
 
 
 
