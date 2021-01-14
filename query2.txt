@@ -47,6 +47,24 @@ più frequenti
     HAVING num_prenotazioni > 2
 
 ● Stampare tutti gli ospiti per ogni prenotazione
+    -SELECT *
+    FROM `ospiti`
+    JOIN `prenotazioni_has_ospiti`
+    ON `prenotazioni_has_ospiti`.`ospite_id` = `ospiti`.`id`
+
+● Stampare Nome, Cognome, Prezzo e Pagante per tutte le
+prenotazioni fatte a Maggio 2018
+    -SELECT ospiti.name, ospiti.lastname, pagamenti.price, paganti.name as pagante_name, prenotazioni.created_at as prenotation_date
+    FROM `ospiti`
+    JOIN prenotazioni_has_ospiti
+    ON ospiti.id = prenotazioni_has_ospiti.ospite_id
+    JOIN paganti
+    ON paganti.ospite_id = ospiti.id
+    JOIN pagamenti
+    ON pagamenti.pagante_id = paganti.id
+    JOIN prenotazioni
+    ON prenotazioni_has_ospiti.prenotazione_id = prenotazioni.id
+    WHERE MONTH(prenotazioni.created_at) = 5
 
 
 
