@@ -20,6 +20,16 @@ più frequenti
     GROUP BY HOUR(created_at)
     ORDER BY COUNT(id) DESC
 
+● Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
+    -SELECT COUNT(id) AS num_prenotazioni, ospite_id
+    FROM `prenotazioni_has_ospiti`
+    GROUP BY ospite_id
+    ORDER BY COUNT(id) DESC
+    limit 1
+
+----------------------------JOIN-----------------------------
+
+● Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
 
 
 
