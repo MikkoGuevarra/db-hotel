@@ -76,6 +76,31 @@ primo piano
     ON stanze.id = prenotazioni.stanza_id
     WHERE stanze.floor = 1
 
+● Prendi i dati di fatturazione per la prenotazione con id=7
+    -SELECT prenotazioni.id, paganti.name, paganti.lastname, paganti.address, pagamenti.price, paganti.created_at
+    FROM `prenotazioni`
+    JOIN pagamenti
+    ON pagamenti.prenotazione_id = prenotazioni.id
+    JOIN paganti
+    ON paganti.id = pagamenti.pagante_id
+    WHERE prenotazioni.id = 7
+
+● Le stanze sono state tutte prenotate almeno una volta?
+(Visualizzare le stanze non ancora prenotate)
+
+    -SELECT *
+    FROM `prenotazioni`
+    RIGHT JOIN stanze
+    ON stanze.id = prenotazioni.stanza_id
+    WHERE prenotazioni.stanza_id IS NULL
+
+    -----second solution----
+    -SELECT *
+    FROM `stanze`
+    LEFT JOIN prenotazioni
+    ON prenotazioni.stanza_id = stanze.id
+    WHERE prenotazioni.stanza_id IS NULL
+
 
 
 
